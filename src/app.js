@@ -1,7 +1,12 @@
 require("./db/connection");
 const mongoose = require("mongoose");
 const yargs = require("yargs");
-const { addMovie, listMovies, removeMovie } = require("./movies/movieMethods");
+const {
+  addMovie,
+  listMovies,
+  removeMovie,
+  editMovie,
+} = require("./movies/movieMethods");
 
 // yargs what we pass in terminal
 const app = async (yargsObj) => {
@@ -19,7 +24,11 @@ const app = async (yargsObj) => {
       console.log(await listMovies());
       //   Edit
     } else if (yargsObj.edit) {
-      //
+      await editMovie(yargsObj.edit, {
+        title: yargsObj.title,
+        actor: yargsObj.actor,
+      });
+      console.log(await listMovies());
     } else {
       console.log("Incorrect command");
     }

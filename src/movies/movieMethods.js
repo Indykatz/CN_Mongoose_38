@@ -31,3 +31,13 @@ exports.removeMovie = async (movieObj) => {
 };
 
 // Update one or update many Movie
+exports.editMovie = async (theTitle, theEdits) => {
+  try {
+    const filmTitle = { title: theTitle };
+    const newData = { $set: { title: theEdits.title, actor: theEdits.actor } };
+    const editEntry = await Movie.updateOne(filmTitle, newData);
+    console.log(editEntry);
+  } catch (error) {
+    console.log(error);
+  }
+};
