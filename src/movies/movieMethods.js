@@ -24,7 +24,7 @@ exports.listMovies = async () => {
 // Delete one or delete many Movie
 exports.removeMovie = async (movieObj) => {
   try {
-    await Movie.remove(movieObj);
+    await Movie.deleteOne(movieObj);
   } catch (error) {
     console.log(error);
   }
