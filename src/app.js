@@ -13,20 +13,29 @@ const app = async (yargsObj) => {
   try {
     // Add
     if (yargsObj.add) {
-      await addMovie({ title: yargsObj.title, actor: yargsObj.actor });
+      await addMovie({
+        title: yargsObj.title,
+        director: yargsObj.director,
+        year: yargsObj.year,
+      });
       console.log(await listMovies());
       //   List
     } else if (yargsObj.list) {
       console.log(await listMovies());
       //   Delete
     } else if (yargsObj.delete) {
-      await removeMovie({ title: yargsObj.title, actor: yargsObj.actor });
+      await removeMovie({
+        title: yargsObj.title,
+        director: yargsObj.director,
+        year: theEdits.year,
+      });
       console.log(await listMovies());
       //   Edit
     } else if (yargsObj.edit) {
       await editMovie(yargsObj.edit, {
         title: yargsObj.title,
-        actor: yargsObj.actor,
+        actor: yargsObj.director,
+        year: yargsObj.year,
       });
       console.log(await listMovies());
     } else {

@@ -6,7 +6,10 @@ const movieSchema = new mongoose.Schema({
     unique: true,
     required: true,
   },
-  actor: {
+  director: {
+    type: String,
+  },
+  year: {
     type: String,
   },
 });

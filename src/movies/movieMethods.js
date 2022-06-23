@@ -34,7 +34,13 @@ exports.removeMovie = async (movieObj) => {
 exports.editMovie = async (theTitle, theEdits) => {
   try {
     const filmTitle = { title: theTitle };
-    const newData = { $set: { title: theEdits.title, actor: theEdits.actor } };
+    const newData = {
+      $set: {
+        title: theEdits.title,
+        director: theEdits.director,
+        year: theEdits.year,
+      },
+    };
     const editEntry = await Movie.updateOne(filmTitle, newData);
     console.log(editEntry);
   } catch (error) {
